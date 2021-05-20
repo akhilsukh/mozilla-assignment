@@ -1,16 +1,559 @@
 :root {
     /* Colorful gradient used in the navigation bar */
-  --navGradient: linear-gradient(-90deg, #ff9100 0%, #f10366 50%, #6173ff 100%);
+    --navGradient: linear-gradient(-90deg, #ff9100 0%, #f10366 50%, #6173ff 100%);
 }
 
+
 /* Body font */
+
 .font-inter {
     font-family: "Inter UI", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+
 /* Used for all titles/labels/buttons  */
+
 .font-metropolis {
     font-family: "Metropolis", Arial, Helvetica, sans-serif;
 }
 
+
 /* Put CSS Styles Here */
+
+html {
+    background-image: url("https://relay.firefox.com/static/images/email-tout-bg.svg");
+    background-color: rgba(0, 0, 0, 0.03);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+@media (max-width: 640px) {
+    html {
+        overflow: scroll;
+    }
+}
+
+
+/* Topbar and components */
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.nav-bar {
+    width: auto;
+    height: fit-content;
+    background-image: linear-gradient(60deg, #2d264e, #26294e);
+    padding: 18px 36px;
+    overflow: hidden;
+    box-shadow: 0px 1px 1px gray;
+}
+
+#logo-relay {
+    height: 2.7em;
+    padding: auto;
+    margin: auto;
+}
+
+.nav-title {
+    font-size: 4em;
+    font-weight: 300;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-hyper {
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0 4px 0 auto;
+}
+
+.nav-item {
+    display: block;
+    float: left;
+    padding: 4px 6px;
+    margin-left: 1em;
+    border: 2px solid transparent;
+}
+
+.active::after {
+    display: block;
+    content: "";
+    background-image: var(--navGradient);
+    margin-bottom: -6px;
+    margin-top: 4px;
+    height: 2px;
+}
+
+.nav-link {
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    background-color: #0026294e;
+}
+
+.hide {
+    display: none !important;
+}
+
+.button-profile {
+    background-color: lightgray;
+    height: 45px;
+    width: 45px;
+    border: 1px solid white;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 0 0 12px;
+}
+
+#firefox-apps {
+    background-color: transparent;
+    font-size: 28px;
+    margin: 0 12px;
+    border: 1px solid transparent;
+    padding: 2px;
+    border-radius: 4px;
+}
+
+#firefox-apps:hover {
+    background-color: rgb(97, 90, 115);
+}
+
+#firefox-apps i {
+    color: white;
+}
+
+
+/* Nav Menu Bar */
+
+.nav-menu {
+    background-color: #2f2f54;
+    padding: 0;
+}
+
+.nav-menu button {
+    background-color: #2f2f54;
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    /* box-shadow: -.25px 0 0 #818181 */
+}
+
+.nav-menu span {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+.nav-menu ul {
+    background-color: #2f2f54;
+    list-style-type: none;
+    margin: 0;
+    padding: 4px;
+}
+
+.nav-menu li {
+    color: white;
+    padding: 10px;
+    border-top: 1px solid #383853;
+    text-align: end;
+}
+
+.nav-menu li:hover {
+    background: #363652;
+}
+
+@media (max-width: 640px) {
+    #logo-relay {
+        height: 2.2em;
+    }
+    #firefox-apps {
+        margin: 0 4px;
+    }
+    .nav-bar {
+        padding: 18px 24px;
+    }
+}
+
+
+/* Bottom Bar*/
+
+.bottom-bar {
+    position: fixed;
+    /* overflow: auto; */
+    margin: auto 0 0 0;
+    padding: 18px 36px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #2f2f54;
+    flex-direction: row;
+}
+
+#logo-mozilla {
+    height: 2.0em;
+    padding: auto;
+    margin: auto;
+}
+
+.bottom-item {
+    display: block;
+    float: left;
+    padding: 4px 6px;
+    border: 2px solid transparent;
+}
+
+.bottom-hyper {
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0 4px 0 auto;
+}
+
+@media (max-width: 640px) {
+    .bottom-bar {
+        flex-direction: column
+    }
+    .bottom-hyper {
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+
+/* Container for body */
+
+.container {
+    max-width: 900px;
+    margin: 8em auto;
+    padding: 0 36px;
+}
+
+.container h2 {
+    font-weight: 600;
+    color: #0c0c0d;
+    margin: 4px 0;
+    padding: 4px;
+}
+
+.header {
+    border-bottom: 2px solid lightgray;
+    white-space: nowrap;
+    margin: 4em 0 4px 0;
+}
+
+.header span {
+    align-self: center;
+    font-weight: 300;
+}
+
+.header b {
+    font-weight: 600;
+}
+
+.button-holder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media (max-width: 640px) {
+    .button-holder {
+        flex-direction: column;
+    }
+    .container h2 {
+        margin: 12px auto;
+    }
+    .container {
+        padding: 0 24px;
+        margin: 9em auto;
+    }
+}
+
+
+/* 
+    Switch related css 
+    Referenced from https://www.w3schools.com/howto/howto_css_switch.asp
+*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 16px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 12px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(12px);
+    -ms-transform: translateX(12px);
+    transform: translateX(12px);
+}
+
+
+/* Relay container and card */
+
+.relay-container {
+    margin: 24px 0;
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 0px 0px 4px 1px lightgray;
+    margin-top: 12px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+}
+
+.card-top {}
+
+.card-info span {
+    display: block;
+}
+
+.card-email {
+    margin-right: 0.75em;
+    margin-bottom: 8px;
+}
+
+#card-expand:hover {
+    text-decoration: underline;
+}
+
+.card-dropdown {
+    background-color: #f1f1f3;
+    animation: 2s linear infinite alternate slidein;
+}
+
+#card-expand {
+    justify-content: start
+}
+
+
+/* Flex Elements  */
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+
+/* Icons */
+
+i.fas {
+    margin: 2px 4px;
+}
+
+.fa-github {
+    font-size: 28px;
+}
+
+.rotate {
+    rotate: 180deg;
+}
+
+
+/* Text and Buttons */
+
+.text-small {
+    font-size: 15px;
+    color: #737373;
+}
+
+.text-24 {
+    font-size: 24px;
+}
+
+span {
+    padding: 1px;
+}
+
+span.big-num {
+    margin-bottom: 6px;
+    padding: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+.semibold {
+    font-weight: 600;
+}
+
+.description-num {
+    display: block;
+    font-weight: 700px;
+}
+
+.items-start {
+    align-items: start;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.material-button {
+    padding: 8px 10px;
+    overflow: hidden;
+    font-size: 1.1em;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    width: max-content;
+}
+
+
+/* Colors */
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-white:hover {
+    background-color: lightgray;
+}
+
+.bg-blue {
+    background-color: #0060df;
+}
+
+.bg-blue:hover {
+    background-color: #003eaa;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-gray {
+    color: #737373;
+}
+
+.text-dark {
+    color: #38383d;
+}
+
+.filter span {
+    color: #C8C8C8;
+}
+
+
+/* Margins and Padding */
+
+.ml-48 {
+    margin-left: 48px;
+}
+
+.mv-12 {
+    margin: 12px 0;
+}
+
+.mh-4 {
+    margin: 0 4px;
+}
+
+
+/* .mh-auto {
+    margin: 0 auto;
+} */
+
+.mb-8 {
+    margin-bottom: 8px;
+}
+
+.p-2 {
+    padding: 2px;
+}
+
+.p-16 {
+    padding: 16px;
+}
+
+.w-full {
+    width: 100%;
+}
+
+
+/* Classes for mobile visbility */
+
+.no-mobile {
+    /* display: unset; */
+}
+
+.only-mobile {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .no-mobile {
+        display: none !important;
+    }
+    .only-mobile {
+        display: unset;
+    }
+}
