@@ -2,24 +2,190 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <title>Firefox Relay</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <link rel="shortcut icon" href="https://www.mozilla.org/media/img/favicons/mozilla/favicon.d25d81d39065.ico">
-    <link rel="stylesheet" href="assets/fonts.css">
-    <link rel="stylesheet" href="assets/styles.css">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta http-equiv='content-type' content='text/html; charset=utf-8'>
+    <link rel='shortcut icon' href='https://www.mozilla.org/media/img/favicons/mozilla/favicon.d25d81d39065.ico'>
+    <link rel='stylesheet' href='assets/fonts.css'>
+    <link rel='stylesheet' href='assets/styles.css'>
 </head>
 
-<body>
-    <!-- Put HTML Here -->
-    
+<body class='font-inter'>
+
+    <div class='top-bar'>
+        <div class='nav-bar flex flex-row font-metropolis'>
+            <a href='/'><img src='/assets/img/logo-relay.png' id='logo-relay'></a>
+            <div class='flex flex-row'>
+                <ul>
+                    <li class='nav-item active no-mobile'><a class='nav-link' href=''>Home</a></li>
+                    <li class='nav-item no-mobile'><a class='nav-link' href=''>FAQ</a></li>
+                </ul>
+                <button id='firefox-apps'>
+                <i class="fas fa-th"></i>
+            </button>
+                <!-- <i id='firefox-apps' class="fas fa-th"></i> -->
+                <button class='button-profile'></button>
+            </div>
+        </div>
+
+        <nav class='nav-menu only-mobile'>
+            <button id='toggle-menu' class='font-metropolis'>
+                <span>Menu</span>
+            </button>
+            <div id='menu' class='hide font-metropolis'>
+                <ul class='flex-end'>
+                    <li><a>Home</a></li>
+                    <li><a>FAQ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class='container font-metropolis'>
+        <div class='text-center'>
+            <span>
+                Welcome, mcrawford@mozilla.com ! 
+            </span>
+        </div>
+
+        <div class='header flex flex-row'>
+            <h2>Manage your Relay aliases</h2>
+            <span class='no-mobile'><b>4</b> remaining aliases </span>
+        </div>
+
+        <div class='button-holder flex-end'>
+            <button class='material-button bg-blue text-white mv-12 font-metropolis'>
+                <i class="fas fa-plus"></i>
+                Generate New Alias
+            </button>
+
+            <span class='only-mobile'><b>4</b> remaining aliases </span>
+        </div>
+
+        <div class='relay-container'>
+            <div class='flex flex-row'>
+                <span class='text-small mh-4'>
+                    Add account name
+                    <i class="fas fa-pencil-alt"></i>
+                </span>
+                <form>
+                    <span id='toggle-text' class='text-small mh-4'>
+                        forwarding
+                    </span>
+                    <label class='switch'>
+                        <input id='forwarding-toggle' type='checkbox'>
+                        <span class='slider'></span>
+                    </label>
+                </form>
+            </div>
+            <div class='card'>
+                <div class='card-top p-16 flex flex-row'>
+                    <div class='card-info'>
+                        <span class='card-email p-2'>sw4wo4v1s@relay.firefox.com</span>
+                        <span id='card-expand' class='text-small'>
+                            Show Details
+                            <i id='caret' class="fas fa-angle-down"></i>
+                        </span>
+                    </div>
+                    <div class='flex flex-row no-mobile'>
+                        <div id='relay-blocked' class='flex flex-col text-center ml-48 filter'>
+                            <span class='big-num'>
+                                0
+                            </span>
+                            <span class='description-num text-small'>
+                                Blocked
+                            </span>
+                        </div>
+                        <div id='relay-forwarded' class='flex flex-col text-center ml-48'>
+                            <span class='big-num'>
+                                0
+                            </span>
+                            <span class='description-num text-small'>
+                                Forwarded
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div id='dropdown' class='card-dropdown hide p-16'>
+                    <div class="no-mobile flex flex-row">
+                        <div class='flex flex-row'>
+                            <div class='flex flex-col items-start'>
+                                <span class='text-small'>
+                                    Created:
+                                </span>
+                                <span class='text-dark'>
+                                    May 10, 2021
+                                </span>
+                            </div>
+                            <div class='flex flex-col items-start ml-48'>
+                                <span class='text-small'>
+                                    Forward emails to
+                                </span>
+                                <span class='text-dark semibold'>
+                                    mcrawford@mozilla.com
+                                </span>
+                            </div>
+                        </div>
+                        <div class='flex-end'>
+                            <button class='material-button bg-white text-small font-metropolis'>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div class='only-mobile flex flex-col'>
+                        <div id='relay-blocked-mobile' class='flex flex-row mb-8 filter'>
+                            <span class='text-small'>Blocked</span>
+                            <span class='text-24 semibold'>0</span>
+                        </div>
+                        <div id='relay-forwarded-mobile' class='flex flex-row mb-8'>
+                            <span class='text-small'>Forwarded</span>
+                            <span class='text-24 semibold'>0</span>
+                        </div>
+                        <div class='flex flex-row mb-8'>
+                            <span class='text-small'>Created</span>
+                            <span class=''>May 10, 2021</span>
+                        </div>
+                        <!-- <div class='flex flex-row'> -->
+                        <button class="material-button bg-white text-small w-full font-metropolis">
+                                Delete
+                            </button>
+                        <!-- </div> -->
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class='font-inter'>
+            <span class='bottom-tip'>
+                Firefox Relay supports email forwarding (including attachments) of email up to 150KB in size 
+            </span>
+        </div>
+
+    </div>
+
+    <div class='bottom-bar flex font-metropolis'>
+        <a href='/'><img src='/assets/img/logo-mozilla.svg' id='logo-mozilla'></a>
+        <ul class='bottom-hyper flex'>
+            <li class='bottom-item'><a class='nav-link' href=''>Privacy</a></li>
+            <li class='bottom-item'><a class='nav-link' href=''>Relay Terms</a></li>
+            <li class='bottom-item'><a class='nav-link' href=''>Legal</a></li>
+            <li class='bottom-item'><i class="fab fa-github text-white"></i></li>
+        </ul>
+        <!-- <i id='firefox-apps' class="fas fa-th"></i> -->
+    </div>
+
     <!-- 
         Font Awesome v5 Free - See https://fontawesome.com/start for more info
-        Example usage: <i class="fas fa-toggle-off"></i>
+        Example usage: <i class='fas fa-toggle-off'></i>
      -->
-    <script src="https://kit.fontawesome.com/4c55e184d1.js" crossorigin="anonymous"></script>
-    <script src="assets/app.js"></script>
+    <script src='https://kit.fontawesome.com/4c55e184d1.js' crossorigin='anonymous'></script>
+    <script src='assets/app.js'></script>
 </body>
 
 </html>
