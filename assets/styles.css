@@ -376,6 +376,10 @@ input:checked+.slider:before {
     animation: 2s linear infinite alternate slidein;
 }
 
+#card-expand {
+    justify-content: start
+}
+
 
 /* Flex Elements  */
 
@@ -409,7 +413,7 @@ i.fas {
 }
 
 .rotate {
-    filter: rotate(180deg);
+    rotate: 180deg;
 }
 
 
